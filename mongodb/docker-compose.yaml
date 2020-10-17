@@ -1,0 +1,21 @@
+version: "2"
+services:
+  mongo:
+    restart: always
+    image: mongo:latest
+    container_name: my_mongo
+    ports:
+      - 27019:27017
+    volumes:
+      - ./data/db:/data/db
+      - ./data/configdb:/data/configdb
+    networks:
+      - my-network
+
+# volumes:
+#   my-mongodb:
+#   mongoconfig:
+
+networks:
+  my-network:
+    driver: bridge
